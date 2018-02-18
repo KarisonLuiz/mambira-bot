@@ -1,7 +1,12 @@
-if {[catch {package present Tcl 8.6.0}]} { return }
-if {($::tcl_platform(platform) eq "unix") && ([info exists ::env(DISPLAY)]
-	|| ([info exists ::argv] && ("-display" in $::argv)))} {
-    package ifneeded Tk 8.6.6 [list load [file join $dir .. .. bin libtk8.6.dll] Tk]
-} else {
-    package ifneeded Tk 8.6.6 [list load [file join $dir .. .. bin tk86tg.dll] Tk]
+{
+	"name"= "mambira-bot",
+	"description"= "bot mambira feito por um mero amador",
+	"version"= "0.0.0",
+	"main"= "mambira-bot",
+	"scripts"= {
+		"starts"= "mambira-bot.py"
+	},
+	"dependencies" {
+		"discord.py"= "1.0.0"
+	}
 }
