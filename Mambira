@@ -1,0 +1,69 @@
+import discord
+from discord.ext import commands
+import asyncio
+import random
+
+client = discord.Client()
+#ID BOT 413439445996666892
+
+@client.event
+async def on_ready():
+    print('BOT ONLINE - Olá Mundo!')
+    print(client.user.name)
+    print(client.user.id)
+    print('--- Obrigado Karison por me criar! ---')
+
+
+@client.event
+async def on_message(message):
+    if (message.author.id == '413439445996666892'): return                        #para não respnder a si mesmo
+    if message.content.lower().startswith('bom dia'):
+        opcoes1 = ["Bom dia! 🌞", "Volta a dormir! 💤", "Bom dia, flor do dia!!", "Só pra ti!!", "Hunrum!!", "ohayo gozaimais!"]
+        bom_dia = random.choice(opcoes1)
+        await client.send_message(message.channel, bom_dia)
+    elif message.content.lower().startswith('boa tarde'):
+        opcoes2 = ["Boa tarde", "Boa tarde Fera", "legal", "Qual foi homunculo!!", "!", "Vai trabalhar"]
+        boa_tarde = random.choice(opcoes2)
+        await client.send_message(message.channel, boa_tarde)
+    elif message.content.lower().startswith('boa noite'):
+        opcoes3 = ["Boa noite 🌝", "Boa noite bebezinho", "Olá", "Qual foi!!", "Eaaee!!", "Nyaaaa :3"]
+        boa_noites = random.choice(opcoes3)
+        await client.send_message(message.channel, boa_noites)
+
+    elif message.content.startswith('ola'):                                                  # Comprimentar o autor da mensagem
+        autor = str(message.author).split("#")[0]                                            # pega o nome da autor
+        opcoes4 = ["Hola {}!".format(autor), "Fale fera {}!".format(autor)]                  # mensagem que será mandada + autor
+        msg = random.choice(opcoes4)
+        await client.send_message(message.channel, msg)
+
+    elif message.content.lower().startswith('!teste'):                            #testando bot
+        await client.send_message(message.channel, "Olá Mundo, Estou vivo!!")
+
+    elif message.content.lower().startswith('ping'): #testando o ping
+        await client.send_message(message.channel, "🏓 Pong!")
+
+    elif message.content.lower().startswith('!moeda'): #jogar moeda
+        choice = random.randint(1,2)
+        if choice == 1:
+            await client.add_reaction(message, '😉')
+        if choice == 2:
+            await client.add_reaction(message, '👑')
+
+    elif message.content.lower().startswith('!dado 6'): #dado de seis lados
+        choice = random.randint(1,6)
+        if choice == 1:
+            await client.send_message(message.channel, "🎲 Você jogou o dado e o resultado foi **1**")
+        if choice == 2:
+            await client.send_message(message.channel, "🎲 Você jogou o dado e o resultado foi **2**")
+        if choice == 3:
+            await client.send_message(message.channel, "🎲 Você jogou o dado e o resultado foi **3**")
+        if choice == 4:
+            await client.send_message(message.channel, "🎲 Você jogou o dado e o resultado foi **4**")
+        if choice == 5:
+            await client.send_message(message.channel, "🎲 Você jogou o dado e o resultado foi **5**")
+        if choice == 6:
+            await client.send_message(message.channel, "🎲 Você jogou o dado e o resultado foi **6**")
+
+
+
+client.run('NDEzNDM5NDQ1OTk2NjY2ODky.DWY-2w.pDbatWP96LHytGtvi0T315mRxBg')
