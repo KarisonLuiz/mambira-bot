@@ -1,0 +1,12 @@
+{
+	" nome " = " mambira-bot " ,
+	" descrição " = " bot mambira feito por um mero amador " ,
+	" versão " = " 0.0.0 " ,
+	" principal " = " mambira-bot " ,
+	" scripts " = {
+		" começa " = " mambira-bot.py "
+	},
+	" dependências " {
+		" discord.py " = " 1.0.0 "
+	}
+}
