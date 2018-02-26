@@ -66,4 +66,4 @@ async def on_message(message):
 
 
 
-client.run('NDEzNDM5NDQ1OTk2NjY2ODky.DWY-2w.pDbatWP96LHytGtvi0T315mRxBg')
+client.run('process.env.BOT_TOKEN')  #('NDEzNDM5NDQ1OTk2NjY2ODky.DWY-2w.pDbatWP96LHytGtvi0T315mRxBg')
